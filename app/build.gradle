@@ -22,6 +22,7 @@ android {
 buildscript {
     repositories {
         maven { url 'https://maven.fabric.io/public' }
+         mavenCentral()
     }
 }
 dependencies {
@@ -30,5 +31,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:design:23.1.0'
-
+    compile 'com.facebook.android:facebook-android-sdk:4.7.0'
 }
