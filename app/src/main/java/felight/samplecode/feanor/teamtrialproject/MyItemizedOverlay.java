@@ -1,4 +1,4 @@
-package com.example.surroundsync1.osm;
+package felight.samplecode.feanor.teamtrialproject;
 
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
@@ -16,6 +16,7 @@ import java.util.ArrayList;
  * Created by SurroundSync1 on 11/12/2015.
  */
 public class MyItemizedOverlay extends ItemizedOverlay {
+    //It is for giving inputs for array JSON list
 
     private ArrayList<OverlayItem> overlayItems=new ArrayList<OverlayItem>();
 
@@ -29,9 +30,11 @@ public class MyItemizedOverlay extends ItemizedOverlay {
         return 0;
     }
 
+//Selecting the required destination or location
     public MyItemizedOverlay(Drawable pDefaultMarker,ResourceProxy pResourceProxy){
         super(pDefaultMarker,pResourceProxy);
     }
+    //Giving the location as input
     public void addItem(GeoPoint geoPoint,String title,String snippet){
         OverlayItem newItem=new OverlayItem(title,snippet,geoPoint);
         overlayItems.add(newItem);

@@ -26,10 +26,12 @@ buildscript {
     }
 }
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:design:23.1.0'
     compile 'com.facebook.android:facebook-android-sdk:4.7.0'
+    compile files('lib/osmdroid-android-3.0.8.jar')
+    compile files('lib/slf4j-android-1.5.8.jar')
 }

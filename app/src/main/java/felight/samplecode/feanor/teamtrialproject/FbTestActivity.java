@@ -1,15 +1,13 @@
-package com.om.user.project;
+package felight.samplecode.feanor.teamtrialproject;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -24,12 +22,14 @@ import com.facebook.share.model.SharePhotoContent;
 import java.util.Arrays;
 import java.util.List;
 
-
+/**
+ * Created by Merlin on 11/13/2015.
+ */
 public class FbTestActivity extends ActionBarActivity {
 
 
-      CallbackManager callbackManager;
-    String uri;
+    CallbackManager callbackManager;
+    Uri uri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,7 @@ public class FbTestActivity extends ActionBarActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
         List<String> permissionforNeeds = Arrays.asList("publish_actions");
+
         LoginManager manager = LoginManager.getInstance();
         manager.logInWithPublishPermissions(this, permissionforNeeds);
         manager.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
@@ -64,25 +65,23 @@ public class FbTestActivity extends ActionBarActivity {
 
     }
     private void publishImage(){
-       Bitmap image= BitmapFactory.decodeResource(getResources(),R.drawable.chennai);
-         uri=Uri.parse(String.valueOf(image));
+        Bitmap image= BitmapFactory.decodeResource(getResources(), R.drawable.chennai);
+        uri= Uri.parse(String.valueOf(image));
         SharePhoto photo = new SharePhoto.Builder()
-        .setBitmap(image)
+                .setBitmap(image)
                 .setCaption("String")
                 .build();
         SharePhotoContent content= new SharePhotoContent.Builder()
                 .addPhoto(photo)
                 .build();
-        ShareApi.share(content,null);
+        ShareApi.share(content, null);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode,resultCode,data);
-        }
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
-
 
 
     @Override

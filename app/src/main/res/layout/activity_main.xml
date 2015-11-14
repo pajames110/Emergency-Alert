@@ -8,6 +8,6 @@
 
    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:id="@+id/fragment"
-    android:name="com.om.user.project.MainActivityFragment" tools:layout="@layout/fragment_main"
+    android:name="felight.samplecode.feanor.teamtrialproject.MainFragment" tools:layout="@layout/fragment_main"
     android:layout_width="match_parent" android:layout_height="match_parent" />
 </RelativeLayout>

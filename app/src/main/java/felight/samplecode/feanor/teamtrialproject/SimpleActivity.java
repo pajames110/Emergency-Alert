@@ -1,4 +1,4 @@
-package app.james.mymapacivity;
+package felight.samplecode.feanor.teamtrialproject;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -21,24 +21,30 @@ public class SimpleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_simple);
+
+        //Reading the data from message as link
         Intent intent=getIntent();
         tvResult = (TextView) findViewById(R.id.tvUrl);
         Uri data = getIntent().getData();
 
         if ( data != null ) {
+
+            //scheme - https
             String scheme = data.getScheme();
+            //host - maps.google.com
             String host = data.getHost();
+
+            //Extracting latitude and longitude values
             List<String> params = data.getPathSegments();
             latitude = params.get(0);
             longitude = params.get(1);
+            //list size
             int size = params.size();
             String third = params.get(size-1);
             tvResult.setText(data.toString()+"\n"+"Latitude :"+latitude+"\n"+"Longitude :"+longitude);
             Toast.makeText(SimpleActivity.this, latitude+"\n"+longitude, Toast.LENGTH_SHORT).show();
         }
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
